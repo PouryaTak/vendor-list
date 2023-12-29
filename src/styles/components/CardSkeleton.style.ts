@@ -5,8 +5,13 @@ import { SkeletonElement } from "../utils/SkeletonElement.style";
 export const VendorVendorCardSkeleton = styled(VendorCard)`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   padding-bottom: 16px;
+`;
+
+export const BoxSkeleton = styled(SkeletonElement)`
+  height: 114px;
+  margin-bottom: 20px;
 `;
 
 export const TextVendorCardSkeleton = styled.div`
@@ -14,10 +19,7 @@ export const TextVendorCardSkeleton = styled.div`
   padding: 16px 16px 0;
 `;
 
-export const BoxSkeleton = styled(SkeletonElement)`
-  height: 114px;
-`;
 
 export const TextSkeleton = styled(SkeletonElement)<{height?: string}>`
-  height: ${({ height }) => height || "16px"};
+  height: ${({ height }) => height || "14px"};
 `;

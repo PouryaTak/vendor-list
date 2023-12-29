@@ -1,6 +1,6 @@
 import React from "react";
-import VendorListSkeleton from "./VendorListSkeleton";
-import VendorCardSkeleton from "./VendorCardSkeleton";
+import VendorListSkeleton from "./skeleton/VendorListSkeleton";
+import VendorCardSkeleton from "./skeleton/VendorCardSkeleton";
 import { VendorLoadingHandlerProps } from "@/types/props";
 
 export default function VendorLoadingHandler({ isLoading, page }: VendorLoadingHandlerProps) {

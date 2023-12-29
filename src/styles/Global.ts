@@ -50,7 +50,8 @@ body {
 }
 
 body {
-  background: #F2F2F2
+  background: #F2F2F2;
+  min-height: 100vh;
 }
 
 a {

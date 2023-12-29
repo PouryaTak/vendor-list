@@ -1,21 +1,21 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   VendorCard,
   VendorCard_logo,
   VendorCard_coverImage,
-  VendorCard_rating,
-  VendorCard_rating__votes,
-  VendorCard_rating__score,
+  VendorCard_rate,
+  VendorCard_rate__votes,
+  VendorCard_rate__score,
   VendorCard_title,
   VendorCard_content,
   VendorCard_logoContainer,
   VendorCard_description,
-  VendorCard_delivery__type,
-  VendorCard_delivery__fee,
-  VendorCard_rating__separators,
+  VendorCard_rate__separators,
+  VendorCard_delivery,
 } from "@/styles/components/VendorVendorCard.styled";
 import RateStar from "@/components/icons/RatingStar";
-import Link from "next/link";
 import { Flex } from "@/styles/utils/Flex.styled";
 import { numberSeparator } from "@/utils/functions";
 import { VendorVendor } from "@/types/payload";
@@ -31,7 +31,9 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
     <Link href="/">
       <VendorCard>
         {/* Render the vendor cover image */}
-        <VendorCard_coverImage src={data.backgroundImage} loading="lazy" alt="vendor cover image" />
+        <VendorCard_coverImage>
+          <Image src={data.backgroundImage} loading="lazy" alt="vendor cover image" layout="fill" />
+          </VendorCard_coverImage>
         <VendorCard_content>
           {/* Render the vendor logo */}
           <VendorCard_logoContainer>
@@ -40,21 +42,23 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
 
           {/* Render vendor title and rating */}
           <Flex $justifyContent="space-between" $gap="16px">
-            <VendorCard_title>{data.title}</VendorCard_title>
-            <VendorCard_rating>
-              <VendorCard_rating__votes>
+            <VendorCard_title>
+              <h3>{data.title}</h3>
+            </VendorCard_title>
+            <VendorCard_rate>
+              <VendorCard_rate__votes>
                 {/* Render the vote count with separators */}
-                <VendorCard_rating__separators>(</VendorCard_rating__separators>
+                <VendorCard_rate__separators>(</VendorCard_rate__separators>
                 <span>{numberSeparator(data.voteCount)}</span>
-                <VendorCard_rating__separators>)</VendorCard_rating__separators>
-              </VendorCard_rating__votes>
+                <VendorCard_rate__separators>)</VendorCard_rate__separators>
+              </VendorCard_rate__votes>
 
               {/* Render the rating score with a star icon */}
-              <VendorCard_rating__score>
+              <VendorCard_rate__score>
                 <RateStar /> {/* //? this may not be component and should be icon library or svg loader */}
                 <span>{data.rate}</span>
-              </VendorCard_rating__score>
-            </VendorCard_rating>
+              </VendorCard_rate__score>
+            </VendorCard_rate>
           </Flex>
 
           {/* Render vendor description */}
@@ -63,12 +67,11 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
           {/* Render delivery information */}
           <Flex $justifyContent="space-between" $gap="16px">
             <Flex $gap="4px">
-              <VendorCard_delivery__type>پیک اسنپ‌فود:</VendorCard_delivery__type>
-              {/* Render the delivery fee with separators and currency */}
-              <VendorCard_delivery__fee>
+              <VendorCard_delivery>
+                <span>پیک اسنپ‌فود:</span>
                 <span>{numberSeparator(data.deliveryFee)}</span>
                 <span>تومان</span>
-              </VendorCard_delivery__fee>
+              </VendorCard_delivery>
             </Flex>
           </Flex>
         </VendorCard_content>

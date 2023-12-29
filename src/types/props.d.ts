@@ -8,5 +8,6 @@ export type VendorLoadingHandlerProps = {
 export type VendorListProps = {
   vendors: Vendor[];
   isLoading: boolean;
+  hasError: boolean;
   page: number;
 };
