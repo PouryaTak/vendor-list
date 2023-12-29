@@ -1,14 +1,17 @@
-"use client"
+"use client";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "@/styles/Global";
 import { theme } from "@/styles/Theme";
+import StoreProvider from "@/store/provider";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      {children}
-    </ThemeProvider>
+    <StoreProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
+    </StoreProvider>
   );
 }

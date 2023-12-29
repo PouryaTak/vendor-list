@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
-import { Container } from "@/styles/utils/Container.styled";
-import VendorCardComponent from "@/components/vendorCard";
+import useFetchVendors from "@/hooks/useFetchVendors";
+import VendorList from "@/components/vendorListItems/VendorList";
 
 export default function Restaurants() {
+  const { vendors, isLoading, page } = useFetchVendors();
+
   return (
-    <Container>
-      <VendorCardComponent data={}/>
-    </Container>
+    <main>
+      <VendorList vendors={vendors} isLoading={isLoading} page={page} />
+    </main>
   );
 }

@@ -37,7 +37,7 @@ export interface PreorderToday {
   intervals: any[] | null; // Replace 'any' with the actual type if possible
 }
 
-export interface Vendor {
+export interface VendorData {
   id: number;
   vendorCode: string;
   noOrder: boolean;
@@ -149,3 +149,15 @@ export interface Vendor {
   new_type_title: string;
   is_eco: boolean;
 }
+
+export type TextVendor = {
+  type: "TEXT";
+  data: string;
+};
+
+export type VendorVendor = {
+  type: "VENDOR";
+  data: VendorData;
+};
+
+export type Vendor = TextVendor | VendorVendor;
