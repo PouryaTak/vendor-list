@@ -47,9 +47,8 @@ export const VendorCard_logoContainer = styled.div`
   padding: 4px;
   box-shadow: 0 2px 8px 0px rgb(0 0 0 / 0.1);
   position: absolute;
-  top: -64px;
+  bottom: -10px;
   right: 8px;
-  z-index: 20;
 `;
 
 export const VendorCard_logo = styled.img`

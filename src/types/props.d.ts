@@ -20,3 +20,12 @@ export type useFetchVendorsReturnType = {
   page: number;
   isLastPage: boolean;
 }
+
+export type VendorRatingProps = {
+  rate: number;
+  voteCount: string;
+}
+
+export type VendorDeliveryProps = {
+  deliveryFee: string
+}

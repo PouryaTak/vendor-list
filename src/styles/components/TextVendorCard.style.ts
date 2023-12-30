@@ -5,7 +5,7 @@ export const TextVendorCardContent = styled.div`
   padding: 16px 16px 0;
   background: #fff;
   color: #404040;
-  margin-top: 16px;
+  margin-top: 8px;
 
   h2 {
     font-size: 17px;

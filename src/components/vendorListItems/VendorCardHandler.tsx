@@ -1,6 +1,6 @@
 import { Vendor } from '@/types/payload';
 import React from 'react';
-import VendorVendorCard from './vendorCard/VendorVendorCard';
+import VendorVendorCard from './vendorCard/vendorVendorCard';
 import TextVendorCard from './vendorCard/TextVendorCard';
 
 // Define the components for each type. Based on OCP principle.
