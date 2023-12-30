@@ -10,7 +10,7 @@ import { Vendor } from "@/types/payload";
  * @param {VendorListProps} props - Props containing vendor data, loading state, error state, and page index.
  * @returns {JSX.Element} - The rendered JSX element.
  */
-export default function VendorList({ vendors, isLoading, hasError, page }: VendorListProps): JSX.Element {
+export default function VendorList({ vendors, isLoading, hasError, page, isLastPage }: VendorListProps): JSX.Element {
   // Render an error message if an error occurred during data fetching
   if (hasError) return <Error />;
 
@@ -21,6 +21,7 @@ export default function VendorList({ vendors, isLoading, hasError, page }: Vendo
         return <VendorCardHandler key={vendor.type + index} {...vendor} />;
       })}
       <VendorLoadingHandler isLoading={isLoading} page={page} />
+      {isLastPage && <span>اینجا آخر خطه</span>}
     </div>
   );
 }

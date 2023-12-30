@@ -1,10 +1,8 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   VendorCard,
   VendorCard_logo,
-  VendorCard_coverImage,
   VendorCard_rate,
   VendorCard_rate__votes,
   VendorCard_rate__score,
@@ -14,6 +12,8 @@ import {
   VendorCard_description,
   VendorCard_rate__separators,
   VendorCard_delivery,
+  VendorCard_cover,
+  VendorCard_cover__image,
 } from "@/styles/components/VendorVendorCard.styled";
 import RateStar from "@/components/icons/RatingStar";
 import { Flex } from "@/styles/utils/Flex.styled";
@@ -22,6 +22,8 @@ import { VendorVendor } from "@/types/payload";
 
 /**
  * Component for rendering a vendor card with specific styling and content.
+ * This component should be parent of multiple smaller components, to show conditionals and
+ * different styling depending on data "which I don't know right know".
  * @param {Object} props - Props containing vendor data.
  * @param {VendorVendor} props.data - The vendor data to be displayed on the card.
  * @returns {JSX.Element} - The rendered JSX element.
@@ -31,9 +33,9 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
     <Link href="/">
       <VendorCard>
         {/* Render the vendor cover image */}
-        <VendorCard_coverImage>
-          <Image src={data.backgroundImage} loading="lazy" alt="vendor cover image" layout="fill" />
-          </VendorCard_coverImage>
+        <VendorCard_cover>
+          <VendorCard_cover__image src={data.backgroundImage} loading="lazy" alt={data.title} />
+        </VendorCard_cover>
         <VendorCard_content>
           {/* Render the vendor logo */}
           <VendorCard_logoContainer>
@@ -60,9 +62,6 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
               </VendorCard_rate__score>
             </VendorCard_rate>
           </Flex>
-
-          {/* Render vendor description */}
-          <VendorCard_description>{data.description}</VendorCard_description>
 
           {/* Render delivery information */}
           <Flex $justifyContent="space-between" $gap="16px">

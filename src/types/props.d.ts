@@ -10,4 +10,13 @@ export type VendorListProps = {
   isLoading: boolean;
   hasError: boolean;
   page: number;
+  isLastPage: boolean;
 };
+
+export type useFetchVendorsReturnType = {
+  vendors: Vendor[];
+  isLoading: boolean;
+  hasError: boolean;
+  page: number;
+  isLastPage: boolean;
+}

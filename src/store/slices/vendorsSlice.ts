@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { VendorListSliceType } from "@/types/slice";
 import { fetchVendors } from "../thunks/fetchVendorsThunk";
+import { QUERY } from "@/statics/constants";
 
 // Initial state for the vendor list slice
 const initialState: VendorListSliceType = {
   vendors: [],
-  page: 0,
+  page: QUERY.initial_page,
   isLoading: true,
-  hasError: false
+  hasError: false,
+  isLastPage: false
 };
 
 // Create a Redux slice for the vendor list
@@ -38,7 +40,8 @@ const vendorSlice = createSlice({
         ...state,
         isLoading: false,
         page: state.page + 1,
-        vendors: [...state.vendors, ...action.payload.data.finalResult]
+        vendors: [...state.vendors, ...action.payload.data.finalResult],
+        isLastPage: Math.floor(action.payload.data.count / QUERY.page_size) <= state.page,
       };
     });
 

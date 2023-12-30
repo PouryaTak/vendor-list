@@ -7,4 +7,5 @@ export type VendorListSliceType = {
     page: number;
     isLoading: boolean;
     hasError: boolean;
+    isLastPage: boolean;
 };

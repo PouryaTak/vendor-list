@@ -9,7 +9,7 @@ export const VendorCard = styled.section`
   box-shadow: 0 4px 8px 0px rgb(0 0 0 / 0.07);
 `;
 
-export const VendorCard_coverImage = styled.div`
+export const VendorCard_cover = styled.div`
   width: 100%;
   height: 114px;
   border-radius: 6px;
@@ -20,12 +20,15 @@ export const VendorCard_coverImage = styled.div`
   object-fit: cover;
   position: relative;
   margin-bottom: 20px;
-  & > img {
+`;
+
+export const VendorCard_cover__image = styled.img`
     border-radius: 6px;
+    width: 100%;
+    height:100%;
     filter: brightness(0.97);
     object-fit: cover;
-  }
-`;
+`
 
 export const VendorCard_content = styled.div`
   position: relative;
@@ -100,6 +103,7 @@ export const VendorCard_rate__separators = styled.span`
   color: #e6e6e6;
 `;
 
+// This line not used due to confirmation of current web page design. But see, I did it!
 export const VendorCard_description = styled.p`
   font-size: 12px;
   overflow: hidden;

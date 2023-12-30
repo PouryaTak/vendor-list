@@ -4,6 +4,8 @@ import { AppDispatch } from "@/store";
 import { fetchVendors } from "@/store/thunks/fetchVendorsThunk";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 import { SliceActionType, VendorListSliceType } from "@/types/slice";
+import { useFetchVendorsReturnType } from "@/types/props";
+import { QUERY } from "@/statics/constants";
 
 /**
  * Custom React hook for fetching vendor data with Redux integration and infinite scrolling.
@@ -14,22 +16,22 @@ import { SliceActionType, VendorListSliceType } from "@/types/slice";
  * @property {number} page - The current page index of the fetched data.
  */
 
-export default function useFetchVendors(): VendorListSliceType {
+export default function useFetchVendors(): useFetchVendorsReturnType {
   const dispatch = useDispatch<AppDispatch>();
 
   // Selecting relevant state from the Redux store
-  const { vendors, isLoading, hasError, page } = useSelector<SliceActionType, VendorListSliceType>(
+  const { vendors, isLoading, hasError, page, isLastPage } = useSelector<SliceActionType, VendorListSliceType>(
     (state) => state.vendorSlice
   );
 
   // Using the useInfiniteScroll hook to trigger fetching more data on scroll
-  useInfiniteScroll(() => dispatch(fetchVendors(page)), isLoading);
+  useInfiniteScroll(() => dispatch(fetchVendors(page)), isLoading, isLastPage);
 
   // Fetching initial vendor data on component mount
   React.useEffect(() => {
-    dispatch(fetchVendors(0));
+    dispatch(fetchVendors(QUERY.initial_page));
   }, [dispatch]);
 
   // Returning the relevant state for consumption by components
-  return { vendors, isLoading, hasError, page };
+  return { vendors, isLoading, hasError, page, isLastPage };
 }

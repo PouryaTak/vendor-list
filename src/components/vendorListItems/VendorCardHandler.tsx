@@ -1,7 +1,7 @@
 import { Vendor } from '@/types/payload';
 import React from 'react';
-import VendorVendorCard from './VendorVendorCard';
-import TextVendorCard from './TextVendorCard';
+import VendorVendorCard from './vendorCard/VendorVendorCard';
+import TextVendorCard from './vendorCard/TextVendorCard';
 
 // Define the components for each type. Based on OCP principle.
 const VendorCardItems: Record<string, React.FC<any>> = {

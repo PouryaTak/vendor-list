@@ -4,12 +4,12 @@ import useFetchVendors from "@/hooks/useFetchVendors";
 import VendorList from "@/components/vendorListItems/VendorList";
 
 export default function Restaurants() {
-  const { vendors, isLoading, hasError, page } = useFetchVendors();
+  // Using Container-Presenter Pattern to separate concerns. Adhering to SRP principle
+  const { vendors, isLoading, hasError, page, isLastPage } = useFetchVendors();
 
   return (
     <main>
-      {/* Using Container-Presenter Pattern to separate concerns */}
-      <VendorList vendors={vendors} isLoading={isLoading} page={page} hasError={hasError} />
+      <VendorList vendors={vendors} isLoading={isLoading} page={page} hasError={hasError} isLastPage={isLastPage} />
     </main>
   );
 }
