@@ -9,16 +9,15 @@ import {
   VendorCard_title,
   VendorCard_content,
   VendorCard_logoContainer,
-  VendorCard_description,
   VendorCard_rate__separators,
   VendorCard_delivery,
   VendorCard_cover,
   VendorCard_cover__image,
 } from "@/styles/components/VendorVendorCard.styled";
-import RateStar from "@/components/icons/RatingStar";
 import { Flex } from "@/styles/utils/Flex.styled";
 import { numberSeparator } from "@/utils/functions";
 import { VendorVendor } from "@/types/payload";
+import Star from "/public/image/star.svg";
 
 /**
  * Component for rendering a vendor card with specific styling and content.
@@ -34,7 +33,7 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
       <VendorCard>
         {/* Render the vendor cover image */}
         <VendorCard_cover>
-          <VendorCard_cover__image src={data.backgroundImage} loading="lazy" alt={data.title} />
+          <VendorCard_cover__image src={data.backgroundImage} loading="lazy" alt="" />
         </VendorCard_cover>
         <VendorCard_content>
           {/* Render the vendor logo */}
@@ -57,7 +56,7 @@ export default function VendorCardComponent({ data }: Pick<VendorVendor, "data">
 
               {/* Render the rating score with a star icon */}
               <VendorCard_rate__score>
-                <RateStar /> {/* //? this may not be component and should be icon library or svg loader */}
+                <Star />
                 <span>{data.rate}</span>
               </VendorCard_rate__score>
             </VendorCard_rate>
