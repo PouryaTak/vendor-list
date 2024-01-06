@@ -14,13 +14,15 @@ export default function VendorList({ vendors, isLoading, hasError, page, isLastP
   // Render an error message if an error occurred during data fetching
   if (hasError) return <Error />;
 
-  // Render the list of vendors and loading indicator
   return (
     <div>
-      {vendors.map((vendor: Vendor, index: number) => {
-        return <VendorCardHandler key={vendor.type + index} {...vendor} />;
+      {/* Rendering list */}
+      {vendors.map((vendor: Vendor) => {
+        return <VendorCardHandler key={vendor.type === "TEXT" ? vendor.data : vendor.data.id} {...vendor} />;
       })}
+      {/* handling loading skeleton */}
       <VendorLoadingHandler isLoading={isLoading} page={page} />
+      {/* show the indicator of end of the list */}
       {isLastPage && <span>اینجا آخر خطه</span>}
     </div>
   );

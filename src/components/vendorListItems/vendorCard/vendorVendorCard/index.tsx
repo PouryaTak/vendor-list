@@ -6,7 +6,6 @@ import {
   VendorCard_title,
   VendorCard_content,
   VendorCard_logoContainer,
-  VendorCard_delivery,
   VendorCard_cover,
   VendorCard_cover__image,
 } from "@/styles/components/VendorVendorCard.styled";
