@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "@/store";
 import { fetchVendors } from "@/store/thunks/fetchVendorsThunk";
@@ -28,7 +28,7 @@ export default function useFetchVendors(): useFetchVendorsReturnType {
   useInfiniteScroll(() => dispatch(fetchVendors(page)), isLoading, isLastPage);
 
   // Fetching initial vendor data on component mount
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchVendors(QUERY.initial_page));
   }, [dispatch]);
 

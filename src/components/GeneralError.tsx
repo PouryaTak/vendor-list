@@ -1,7 +1,7 @@
 import { Flex } from "@/styles/utils/Flex.styled";
 import React from "react";
 
-export default function Error() {
+export default function GeneralError() {
   return (
     <Flex $justifyContent="center" $alignItems="center" $direction="column">
       <h1>یه مشکلی پیش اومده!</h1>

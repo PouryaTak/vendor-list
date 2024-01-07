@@ -1,7 +1,7 @@
 import { Vendor } from '@/types/payload';
 import React, { memo } from 'react';
-import VendorVendorCard from './vendorCard/vendorVendorCard';
-import TextVendorCard from './vendorCard/TextVendorCard';
+import VendorVendorCard from './listCards/vendorCard';
+import TextVendorCard from './listCards/TextCard';
 
 // Define the components for each type. Based on OCP principle.
 const VendorCardItems: Record<string, React.FC<any>> = {
@@ -19,7 +19,7 @@ const VendorCardHandler = (props: Vendor): JSX.Element | null => {
   const { data, type } = props;
   const SelectedComponent = type ? VendorCardItems[type] : null;
 
-  // If type is recognized, render the selected component
+  // If type is recognized, render the selected component.
   return SelectedComponent ? <SelectedComponent data={data} /> : null;
 }
 

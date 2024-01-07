@@ -1,5 +1,5 @@
 import React from "react";
-import VendorCardSkeleton from "./VendorCardSkeleton";
+import VendorCardSkeleton from "./CardSkeleton";
 import { TextSkeleton, TextVendorCardSkeleton } from "@/styles/components/CardSkeleton.style";
 
 /**

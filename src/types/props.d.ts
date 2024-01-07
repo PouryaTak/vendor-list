@@ -1,6 +1,6 @@
 import { Vendor } from "./payload";
 
-export type VendorLoadingHandlerProps = {
+export type VendorSkeletonHandlerProps = {
   isLoading: boolean;
   page: number;
 };

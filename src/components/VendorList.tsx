@@ -1,7 +1,7 @@
 import React from "react";
 import VendorCardHandler from "@/components/vendorListItems/VendorCardHandler";
-import VendorLoadingHandler from "@/components/vendorListItems/VendorLoadingHandler";
-import Error from "@/components/Error";
+import VendorSkeletonHandler from "@/components/vendorListItems/VendorSkeletonHandler";
+import GeneralError from "@/components/GeneralError";
 import { VendorListProps } from "@/types/props";
 import { Vendor } from "@/types/payload";
 
@@ -10,9 +10,12 @@ import { Vendor } from "@/types/payload";
  * @param {VendorListProps} props - Props containing vendor data, loading state, error state, and page index.
  * @returns {JSX.Element} - The rendered JSX element.
  */
-export default function VendorList({ vendors, isLoading, hasError, page, isLastPage }: VendorListProps): JSX.Element {
+export default function VendorList(props: VendorListProps): JSX.Element {
+  const { vendors, isLoading, hasError, page, isLastPage } = props;
+  
   // Render an error message if an error occurred during data fetching
-  if (hasError) return <Error />;
+  // This may not belongs here
+  if (hasError) return <GeneralError />;
 
   return (
     <div>
@@ -21,7 +24,7 @@ export default function VendorList({ vendors, isLoading, hasError, page, isLastP
         return <VendorCardHandler key={vendor.type === "TEXT" ? vendor.data : vendor.data.id} {...vendor} />;
       })}
       {/* handling loading skeleton */}
-      <VendorLoadingHandler isLoading={isLoading} page={page} />
+      <VendorSkeletonHandler isLoading={isLoading} page={page} />
       {/* show the indicator of end of the list */}
       {isLastPage && <span>اینجا آخر خطه</span>}
     </div>
