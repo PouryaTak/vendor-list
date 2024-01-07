@@ -1,5 +1,9 @@
 import { QUERY } from "@/statics/constants";
 
+/**
+ * !It has to be separate api interface with it's own response and error handler.
+ * !I could make structured api function / class but I don't want to do that now.
+ */
 export const fetchVendorsApi = async (page: number) => {
   try {
     // Fetch vendor data from the specified API endpoint
@@ -21,5 +25,3 @@ export const fetchVendorsApi = async (page: number) => {
     throw error;
   }
 };
-
-//! It has to be separate api interface with it's own response and error handler. I could make structured api function / class but I don't want to do that.

@@ -9,25 +9,14 @@ const initialState: VendorListSliceType = {
   page: QUERY.initial_page,
   isLoading: true,
   hasError: false,
-  isLastPage: false
+  isLastPage: false,
 };
 
 // Create a Redux slice for the vendor list
 const vendorSlice = createSlice({
   name: "vendorList",
   initialState: initialState,
-  reducers: {
-    /**
-     * Redux action to set the page index for vendor pagination.
-     * @param {Object} state - The current state of the vendor list slice.
-     * @param {Object} action - The action containing the new page index.
-     * @param {number} action.payload.page - The new page index.
-     * @returns {Object} - The updated state with the new page index.
-     */
-    setPage: (state, action) => {
-      return { ...state, page: action.payload.page };
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     // Handle the pending state when fetching vendors
     builder.addCase(fetchVendors.pending, (state) => {
@@ -53,5 +42,5 @@ const vendorSlice = createSlice({
 });
 
 // Export Redux actions and reducer from the vendor list slice
-export const { setPage } = vendorSlice.actions;
+export const {} = vendorSlice.actions;
 export default vendorSlice.reducer;

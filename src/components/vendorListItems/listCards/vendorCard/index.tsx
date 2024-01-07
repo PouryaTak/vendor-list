@@ -6,13 +6,12 @@ import {
   VendorCard_title,
   VendorCard_content,
   VendorCard_logoContainer,
-  VendorCard_delivery,
   VendorCard_cover,
   VendorCard_cover__image,
 } from "@/styles/components/VendorVendorCard.styled";
 import { Flex } from "@/styles/utils/Flex.styled";
-import VendorRating from "@/components/vendorListItems/vendorCard/vendorVendorCard/VendorRating";
-import VendorDelivery from "@/components/vendorListItems/vendorCard/vendorVendorCard/VendorDelivery";
+import VendorRating from "@/components/vendorListItems/listCards/vendorCard/VendorRating";
+import VendorDelivery from "@/components/vendorListItems/listCards/vendorCard/VendorDelivery";
 import { numberSeparator } from "@/utils/functions";
 import { VendorVendor } from "@/types/payload";
 
